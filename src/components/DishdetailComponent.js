@@ -7,11 +7,16 @@ class DishDetail extends Component {
 
     renderComments(comments) {
         if (comments !== undefined) {
-            const listcomments = comments.map((commentinfo) => {
+            const listcomments = comments.map((commentinfo) => {                   
+                const formatted = new Date(commentinfo.date).toLocaleDateString('en-US', {  
+                    day : 'numeric',
+                    month : 'short',
+                    year : 'numeric'
+                });
                 return (
                     <ul className="list-unstyled">
                         <li>{commentinfo.comment}</li>
-                        <li>-- {commentinfo.author}</li>
+                        <li>-- {commentinfo.author}, {formatted}</li>
                     </ul>
                 );
             });
