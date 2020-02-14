@@ -15,8 +15,8 @@ class DishDetail extends Component {
                 });
                 return (
                     <li key={commentinfo.id}>
-                        {commentinfo.comment}<p></p>
-                        -- {commentinfo.author}, {formatted}<p></p>
+                        <p>{commentinfo.comment}</p>
+                        <p>-- {commentinfo.author}, {formatted}</p>
                     </li>
                 );
             });
@@ -53,6 +53,7 @@ class DishDetail extends Component {
         const dish = this.props.dish;
         if (dish != null)
             return (
+                <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
                         {this.renderDish(dish)}
@@ -61,6 +62,7 @@ class DishDetail extends Component {
                         <h4>Comments</h4>
                         {this.renderComments(dish.comments)}
                     </div>
+                </div>
                 </div>
             );
         else
