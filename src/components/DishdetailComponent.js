@@ -44,6 +44,7 @@ function RenderComments({ comments }) {
                 <ul className="list-unstyled">
                     {listcomments}
                 </ul>
+                <CommentForm />
             </div>
         );
     } else {
@@ -73,7 +74,6 @@ const DishDetail = (props) => {
                     <div className="col-12 col-md-5 m-1">
                         <h4>Comments</h4>
                         <RenderComments comments={props.comments} />
-                        <CommentForm />
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@ class CommentForm extends Component {
                                     <Label htmlFor="rating">Rating</Label>
                                     <Control.select model=".rating" name="rating"
                                         className="form-control">
-                                        <option>1</option>
+                                        <option selected>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
@@ -149,15 +149,15 @@ class CommentForm extends Component {
                                         show="touched"
                                         messages={{
                                             required: 'Required',
-                                            minLength: ' Must be greater than 2 characters ',
-                                            maxLength: ' Must be 15 characters or less '
+                                            minLength: 'Must be greater than 2 characters',
+                                            maxLength: 'Must be 15 characters or less'
                                         }}
                                     />
                                 </Row>
                                 <Row className="form-group">
                                     <Label htmlFor="comment">Comment</Label>
                                     <Control.textarea model=".message" id="message" name="message"
-                                        rows="12"
+                                        rows="6"
                                         className="form-control">
                                     </Control.textarea>
                                 </Row>
